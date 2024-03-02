@@ -5,13 +5,16 @@
 
 #include <string>
 
+enum class SEX {MALE, FEMALE};
+enum class COLOR {BLACK, WHITE, BROWN, GREY, RED, ORANGE, YELLOW};
+
 class Animal {
  public:
     Animal();
-    Animal(float mass, char* sex, const char* color, int age);
+    Animal(SEX sex, COLOR color, int age, float mass);
 
     Animal(const Animal& ref);
-
+    Animal(Animal&& ref);
     virtual ~Animal();
 
     float getMass();
@@ -20,7 +23,9 @@ class Animal {
     char* getColor();
 
     void setMass(float newMass);
-    void setSex(char* newSex);
+    void setAge(int newAge);
+    void setSex(SEX newSex);
+    void setColor(COLOR newColor);
 
  private:
     float mass;
