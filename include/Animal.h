@@ -17,15 +17,17 @@ class Animal {
     Animal(Animal&& ref);
     virtual ~Animal();
 
-    float getMass();
-    char* getSex();
-    int getAge();
-    char* getColor();
+    int getAge() const;
+    float getMass() const;
+    const char* getSex() const;
+    const char* getColor() const;
 
     void setMass(float newMass);
     void setAge(int newAge);
     void setSex(SEX newSex);
     void setColor(COLOR newColor);
+
+    virtual void whatDoesSay() = 0;
 
  private:
     float mass;

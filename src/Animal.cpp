@@ -88,16 +88,15 @@ Animal::~Animal() {
     delete[] color;
 }
 
-float Animal::getMass() {
+float Animal::getMass() const {
     return this->mass;
 }
 
-int Animal::getAge() {
+int Animal::getAge() const {
     return this->age;
-
 }
 
-char* Animal::getSex() {
+const char* Animal::getSex() const {
     if (this->sex == nullptr) {
         return (char*) "Not yet initialized";
     }
@@ -105,7 +104,7 @@ char* Animal::getSex() {
     return this->sex;
 }
 
-char* Animal::getColor() {
+const char* Animal::getColor() const {
     if (this->color == nullptr) {
         return (char*) "Not yet initialized";
     }
