@@ -28,7 +28,6 @@ class Animal {
     void setColor(COLOR newColor);
 
     virtual void whatDoesSay() = 0;
-
  private:
     float mass;
     char* sex;
