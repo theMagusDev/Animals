@@ -7,47 +7,47 @@
 #define MAX_COLOR_LENGTH 7
 #define MAX_SEX_LENGTH 7
 
-using enum SEX;
-using enum COLOR;
+using enum Sex;
+using enum Color;
 
 Animal::Animal() : mass(0.0), age(0) {
     this->sex = nullptr;
     this->color = nullptr;
 }
 
-Animal::Animal(SEX sex, COLOR color, int age, float mass) {
+Animal::Animal(Sex sex, Color color, int age, float mass) {
     this->mass = mass;
     this->age = age;
     this->sex = new char[MAX_SEX_LENGTH];
     switch (sex) {
-        case (SEX::MALE):
+        case (Sex::MALE):
             this->sex = (char*) "Male";
             break;
-        case (SEX::FEMALE):
+        case (Sex::FEMALE):
             this->sex = (char*) "Female";
             break;
     }
     this->color = new char[MAX_COLOR_LENGTH];
     switch (color) {
-        case (COLOR::BLACK):
+        case (Color::BLACK):
             this->color = (char*) "Black";
             break;
-        case (COLOR::WHITE):
+        case (Color::WHITE):
             this->color = (char*) "White";
             break;
-        case (COLOR::BROWN):
+        case (Color::BROWN):
             this->color = (char*) "Brown";
             break;
-        case (COLOR::GREY):
+        case (Color::GREY):
             this->color = (char*) "Grey";
             break;
-        case (COLOR::RED):
+        case (Color::RED):
             this->color = (char*) "Red";
             break;
-        case (COLOR::ORANGE):
+        case (Color::ORANGE):
             this->color = (char*) "Orange";
             break;
-        case (COLOR::YELLOW):
+        case (Color::YELLOW):
             this->color = (char*) "Yellow";
             break;
     }
@@ -128,37 +128,37 @@ void Animal::setAge(int newAge) {
     this->age = newAge;
 }
 
-void Animal::setSex(SEX newSex) {
+void Animal::setSex(Sex newSex) {
     switch (newSex) {
-        case (SEX::MALE):
+        case (Sex::MALE):
             this->sex = (char*) "Male";
             break;
-        case (SEX::FEMALE):
+        case (Sex::FEMALE):
             this->sex = (char*) "Female";
     }
 }
 
-void Animal::setColor(COLOR newColor) {
+void Animal::setColor(Color newColor) {
     switch (newColor) {
-        case (COLOR::BLACK):
+        case (Color::BLACK):
             this->color = (char*) "Black";
             break;
-        case (COLOR::WHITE):
+        case (Color::WHITE):
             this->color = (char*) "White";
             break;
-        case (COLOR::BROWN):
+        case (Color::BROWN):
             this->color = (char*) "Brown";
             break;
-        case (COLOR::GREY):
+        case (Color::GREY):
             this->color = (char*) "Grey";
             break;
-        case (COLOR::RED):
+        case (Color::RED):
             this->color = (char*) "Red";
             break;
-        case (COLOR::ORANGE):
+        case (Color::ORANGE):
             this->color = (char*) "Orange";
             break;
-        case (COLOR::YELLOW):
+        case (Color::YELLOW):
             this->color = (char*) "Yellow";
             break;
     }

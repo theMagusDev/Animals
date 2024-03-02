@@ -3,15 +3,13 @@
 #ifndef ANIMALS_ANIMAL_H
 #define ANIMALS_ANIMAL_H
 
-#include <string>
-
-enum class SEX {MALE, FEMALE};
-enum class COLOR {BLACK, WHITE, BROWN, GREY, RED, ORANGE, YELLOW};
+enum class Sex {MALE, FEMALE};
+enum class Color {BLACK, WHITE, BROWN, GREY, RED, ORANGE, YELLOW};
 
 class Animal {
  public:
     Animal();
-    Animal(SEX sex, COLOR color, int age, float mass);
+    Animal(Sex sex, Color color, int age, float mass);
 
     Animal(const Animal& ref);
     Animal(Animal&& ref);
@@ -24,8 +22,8 @@ class Animal {
 
     void setMass(float newMass);
     void setAge(int newAge);
-    void setSex(SEX newSex);
-    void setColor(COLOR newColor);
+    void setSex(Sex newSex);
+    void setColor(Color newColor);
 
     virtual void whatDoesSay() = 0;
  private:
