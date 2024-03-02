@@ -1,0 +1,3 @@
+D:/Projects/C++/Animals/cmake-build-debug/CMakeFiles/Animals.dir
+D:/Projects/C++/Animals/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Projects/C++/Animals/cmake-build-debug/CMakeFiles/rebuild_cache.dir
