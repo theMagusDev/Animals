@@ -4,14 +4,14 @@
 #include "../include/Utilities.h"
 #include <iostream>
 
-#define INITIAL_NAME_LENGTH 100
+#define INITIAL_DOG_NAME_LENGTH 100
 
 Dog::Dog() : Animal() {
-    this->name = new char[INITIAL_NAME_LENGTH];
+    this->name = new char[INITIAL_DOG_NAME_LENGTH];
 }
 
 Dog::Dog(char* name, Breed race, Sex sex, Color color, int age, float mass) : Animal(sex, color, age, mass) {
-    this->name = new char[INITIAL_NAME_LENGTH];
+    this->name = new char[INITIAL_DOG_NAME_LENGTH];
     this->name = name;
     this->race = race;
 }
@@ -72,7 +72,7 @@ char* Dog::getRace() {
 
 void Dog::setName(char* newName) {
     size_t newNameLength = getStrLength(newName);
-    if (newNameLength + 1 > INITIAL_NAME_LENGTH) {
+    if (newNameLength + 1 > INITIAL_DOG_NAME_LENGTH) {
         delete this->name;
         this->name = new char[newNameLength + 1];
         for (int i = 0; i < newNameLength + 1; i++) {

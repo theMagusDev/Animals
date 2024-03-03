@@ -3,7 +3,7 @@
 #ifndef ANIMALS_DOG_H
 #define ANIMALS_DOG_H
 
-#include "../include/Animal.h"
+#include "Animal.h"
 
 enum class Breed {
     LABRADOR,

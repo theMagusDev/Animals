@@ -1,6 +1,8 @@
 #include <iostream>
-#include "Dog.cpp"
-#include "Animal.cpp"
+
+#include "../include/Animal.h"
+#include "../include/Dog.h"
+#include "../include/Fox.h"
 
 using namespace std;
 
