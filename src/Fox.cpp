@@ -1,11 +1,10 @@
 // Copyright (C) 2024 Yuriy Magus
 
 #include "../include/Fox.h"
-#include "../include/Utilities.h"
-
-#define INITIAL_FOX_NAME_LENGTH 100
+#include "../src/Utilities.cpp"
 
 Fox::Fox() : Animal() {
+    this->name = nullptr;
     this->numberRabbitsEaten = 0;
 }
 

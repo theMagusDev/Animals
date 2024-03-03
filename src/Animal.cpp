@@ -1,5 +1,7 @@
 // Copyright (C) 2024 Yuriy Magus
 
+#include <iostream>
+#include <cstring>
 #include "../include/Animal.h"
 
 #define MAX_COLOR_LENGTH 7
@@ -13,39 +15,8 @@ Animal::Animal() : mass(0.0), age(0) {
 Animal::Animal(Sex sex, Color color, int age, float mass) {
     this->mass = mass;
     this->age = age;
-    this->sex = new char[MAX_SEX_LENGTH];
-    switch (sex) {
-        case (Sex::MALE):
-            this->sex = (char*) "Male";
-            break;
-        case (Sex::FEMALE):
-            this->sex = (char*) "Female";
-            break;
-    }
-    this->color = new char[MAX_COLOR_LENGTH];
-    switch (color) {
-        case (Color::BLACK):
-            this->color = (char*) "Black";
-            break;
-        case (Color::WHITE):
-            this->color = (char*) "White";
-            break;
-        case (Color::BROWN):
-            this->color = (char*) "Brown";
-            break;
-        case (Color::GREY):
-            this->color = (char*) "Grey";
-            break;
-        case (Color::RED):
-            this->color = (char*) "Red";
-            break;
-        case (Color::ORANGE):
-            this->color = (char*) "Orange";
-            break;
-        case (Color::YELLOW):
-            this->color = (char*) "Yellow";
-            break;
-    }
+    setSex(sex);
+    setColor(color);
 }
 
 Animal::Animal(const Animal& ref) : mass(ref.mass), age(ref.age) {
@@ -93,7 +64,7 @@ int Animal::getAge() const {
 
 const char* Animal::getSex() const {
     if (this->sex == nullptr) {
-        return (char*) "Not yet initialized";
+        return (char*) "Uninitialized";
     }
 
     return this->sex;
@@ -101,7 +72,7 @@ const char* Animal::getSex() const {
 
 const char* Animal::getColor() const {
     if (this->color == nullptr) {
-        return (char*) "Not yet initialized";
+        return (char*) "Uninitialized";
     }
 
     return this->color;
@@ -124,37 +95,49 @@ void Animal::setAge(int newAge) {
 }
 
 void Animal::setSex(Sex newSex) {
+    delete [] this->sex;
     switch (newSex) {
         case (Sex::MALE):
-            this->sex = (char*) "Male";
+            this->sex = new char[5];
+            strcpy(this->sex, "Male");
             break;
         case (Sex::FEMALE):
-            this->sex = (char*) "Female";
+            this->sex = new char[5];
+            strcpy(this->sex, "Male");
+            break;
     }
 }
 
 void Animal::setColor(Color newColor) {
+    delete [] this->color;
     switch (newColor) {
         case (Color::BLACK):
-            this->color = (char*) "Black";
+            this->color = new char[6];
+            strcpy(this->color, "Black");
             break;
-        case (Color::WHITE):
-            this->color = (char*) "White";
+        case Color::WHITE:
+            this->color = new char[6];
+            strcpy(this->color, "White");
             break;
-        case (Color::BROWN):
-            this->color = (char*) "Brown";
+        case Color::BROWN:
+            this->color = new char[6];
+            strcpy(this->color, "Brown");
             break;
-        case (Color::GREY):
-            this->color = (char*) "Grey";
+        case Color::GREY:
+            this->color = new char[5];
+            strcpy(this->color, "Grey");
             break;
-        case (Color::RED):
-            this->color = (char*) "Red";
+        case Color::RED:
+            this->color = new char[4];
+            strcpy(this->color, "Red");
             break;
-        case (Color::ORANGE):
-            this->color = (char*) "Orange";
+        case Color::ORANGE:
+            this->color = new char[7];
+            strcpy(this->color, "Orange");
             break;
-        case (Color::YELLOW):
-            this->color = (char*) "Yellow";
+        case Color::YELLOW:
+            this->color = new char[7];
+            strcpy(this->color, "Yellow");
             break;
     }
 }

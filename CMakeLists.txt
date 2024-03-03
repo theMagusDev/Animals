@@ -10,4 +10,5 @@ add_executable(Animals src/main.cpp
         include/Dog.h
         src/Fox.cpp
         include/Fox.h
-        include/Utilities.h)
+        include/Utilities.h
+        src/Utilities.cpp)

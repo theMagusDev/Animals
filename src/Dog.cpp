@@ -1,16 +1,17 @@
 // Copyright (C) 2024 Yuriy Magus
 
 #include "../include/Dog.h"
-#include "../include/Utilities.h"
+#include "../src/Utilities.cpp"
 #include <iostream>
 
-#define INITIAL_DOG_NAME_LENGTH 100
-
-Dog::Dog() : Animal() {}
+Dog::Dog() : Animal() {
+    this->name = nullptr;
+}
 
 Dog::Dog(char* name, Breed race, Sex sex, Color color, int age, float mass) : Animal(sex, color, age, mass) {
-    setName(name);
     this->race = race;
+    this->name = nullptr;
+    setName(name);
 }
 
 Dog::Dog(const Dog &ref) : race(ref.race) {
@@ -31,11 +32,15 @@ Dog::Dog(Dog &&ref) : race(ref.race) {
 }
 
 Dog::~Dog() {
-    delete [] this->name;
+    delete[] this->name;
 }
 
 char* Dog::getName() {
-    return this->name;
+    if (this->name != nullptr) {
+        return this->name;
+    } else {
+        return (char*) "Uninitialized";
+    }
 }
 
 char* Dog::getRace() {
@@ -69,16 +74,10 @@ char* Dog::getRace() {
 
 void Dog::setName(char* newName) {
     size_t newNameLength = getStrLength(newName);
-    if (newNameLength + 1 > INITIAL_DOG_NAME_LENGTH) {
-        delete this->name;
-        this->name = new char[newNameLength + 1];
-        for (int i = 0; i < newNameLength + 1; i++) {
-            this->name[i] = newName[i];
-        }
-    } else {
-        for (int i = 0; i < newNameLength + 1; i++) {
-            this->name[i] = newName[i];
-        }
+    delete [] this->name;
+    this->name = new char[newNameLength + 1];
+    for (int i = 0; i < newNameLength + 1; i++) {
+        this->name[i] = newName[i];
     }
 }
 

@@ -73,6 +73,12 @@ build CMakeFiles/Animals.dir/src/Fox.cpp.obj: CXX_COMPILER__Animals_unscanned_De
   OBJECT_DIR = CMakeFiles\Animals.dir
   OBJECT_FILE_DIR = CMakeFiles\Animals.dir\src
 
+build CMakeFiles/Animals.dir/src/Utilities.cpp.obj: CXX_COMPILER__Animals_unscanned_Debug D$:/Projects/C++/Animals/src/Utilities.cpp || cmake_object_order_depends_target_Animals
+  DEP_FILE = CMakeFiles\Animals.dir\src\Utilities.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Animals.dir
+  OBJECT_FILE_DIR = CMakeFiles\Animals.dir\src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Animals
@@ -81,7 +87,7 @@ build CMakeFiles/Animals.dir/src/Fox.cpp.obj: CXX_COMPILER__Animals_unscanned_De
 #############################################
 # Link the executable Animals.exe
 
-build Animals.exe: CXX_EXECUTABLE_LINKER__Animals_Debug CMakeFiles/Animals.dir/src/main.cpp.obj CMakeFiles/Animals.dir/src/Animal.cpp.obj CMakeFiles/Animals.dir/src/Dog.cpp.obj CMakeFiles/Animals.dir/src/Fox.cpp.obj
+build Animals.exe: CXX_EXECUTABLE_LINKER__Animals_Debug CMakeFiles/Animals.dir/src/main.cpp.obj CMakeFiles/Animals.dir/src/Animal.cpp.obj CMakeFiles/Animals.dir/src/Dog.cpp.obj CMakeFiles/Animals.dir/src/Fox.cpp.obj CMakeFiles/Animals.dir/src/Utilities.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Animals.dir

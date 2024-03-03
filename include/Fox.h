@@ -14,7 +14,7 @@ enum class TypeFox {
     KIT
 };
 
-class Fox : Animal {
+class Fox : public Animal {
  public:
     Fox();
     Fox(char* name, TypeFox type, Sex sex, Color color, int age, float mass);
