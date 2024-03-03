@@ -6,13 +6,10 @@
 
 #define INITIAL_DOG_NAME_LENGTH 100
 
-Dog::Dog() : Animal() {
-    this->name = new char[INITIAL_DOG_NAME_LENGTH];
-}
+Dog::Dog() : Animal() {}
 
 Dog::Dog(char* name, Breed race, Sex sex, Color color, int age, float mass) : Animal(sex, color, age, mass) {
-    this->name = new char[INITIAL_DOG_NAME_LENGTH];
-    this->name = name;
+    setName(name);
     this->race = race;
 }
 

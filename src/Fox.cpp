@@ -6,14 +6,12 @@
 #define INITIAL_FOX_NAME_LENGTH 100
 
 Fox::Fox() : Animal() {
-    this->name = new char[INITIAL_FOX_NAME_LENGTH];
     this->numberRabbitsEaten = 0;
 }
 
 Fox::Fox(char* name, TypeFox type, Sex sex, Color color, int age, float mass) : Animal(sex, color, age, mass) {
-    this->name = new char[INITIAL_FOX_NAME_LENGTH];
-    this->name = name;
-    this->type = type;
+    setName(name);
+    setType(type);
     this->numberRabbitsEaten = 0;
 }
 
@@ -69,16 +67,10 @@ int Fox::getNumberRabbitsEaten() {
 
 void Fox::setName(char* newName) {
     size_t newNameLength = getStrLength(newName);
-    if (newNameLength + 1 > INITIAL_FOX_NAME_LENGTH) {
-        delete this->name;
-        this->name = new char[newNameLength + 1];
-        for (int i = 0; i < newNameLength + 1; i++) {
-            this->name[i] = newName[i];
-        }
-    } else {
-        for (int i = 0; i < newNameLength + 1; i++) {
-            this->name[i] = newName[i];
-        }
+    delete this->name;
+    this->name = new char[newNameLength + 1];
+    for (int i = 0; i < newNameLength + 1; i++) {
+        this->name[i] = newName[i];
     }
 }
 
