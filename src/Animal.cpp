@@ -1,14 +1,9 @@
-//
-// Created by Yuriy on 02.03.2024.
-//
+// Copyright (C) 2024 Yuriy Magus
 
 #include "../include/Animal.h"
 
 #define MAX_COLOR_LENGTH 7
 #define MAX_SEX_LENGTH 7
-
-using enum Sex;
-using enum Color;
 
 Animal::Animal() : mass(0.0), age(0) {
     this->sex = nullptr;

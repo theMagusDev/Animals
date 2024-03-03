@@ -1,6 +1,13 @@
 #include <iostream>
+#include "Dog.cpp"
+#include "Animal.cpp"
+
+using namespace std;
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    Dog blankDog;
+    blankDog.whatDoesSay();
+    blankDog.getName();
+
     return 0;
 }

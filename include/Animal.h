@@ -10,7 +10,6 @@ class Animal {
  public:
     Animal();
     Animal(Sex sex, Color color, int age, float mass);
-
     Animal(const Animal& ref);
     Animal(Animal&& ref);
     virtual ~Animal();
