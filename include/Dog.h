@@ -1,11 +1,12 @@
 // Copyright (C) 2024 Yuriy Magus
 
-#ifndef ANIMALS_DOG_H
-#define ANIMALS_DOG_H
+#ifndef INCLUDE_DOG_H_
+#define INCLUDE_DOG_H_
 
 #include "Animal.h"
 
 enum class Breed {
+    UNINITIALIZED,
     LABRADOR,
     SHEPHERD,
     BULLDOG,
@@ -27,9 +28,9 @@ class Dog : public Animal {
     Dog(Dog&& ref);
     ~Dog();
 
-    char* getName();
-    char* getRace();
-    void setName(char* newName);
+    char* getName() const;
+    char* getRace() const;
+    void setName(const char* newName);
     void setRace(Breed newRace);
     void whatDoesSay() override;
 
@@ -41,4 +42,4 @@ class Dog : public Animal {
 };
 
 
-#endif //ANIMALS_DOG_H
+#endif  // INCLUDE_DOG_H_

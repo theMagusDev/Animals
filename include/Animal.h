@@ -1,10 +1,23 @@
 // Copyright (C) 2024 Yuriy Magus
 
-#ifndef ANIMALS_ANIMAL_H
-#define ANIMALS_ANIMAL_H
+#ifndef INCLUDE_ANIMAL_H_
+#define INCLUDE_ANIMAL_H_
 
-enum class Sex {MALE, FEMALE};
-enum class Color {BLACK, WHITE, BROWN, GREY, RED, ORANGE, YELLOW};
+enum class Sex {
+    UNINITIALIZED,
+    MALE,
+    FEMALE
+};
+enum class Color {
+    UNINITIALIZED,
+    BLACK,
+    WHITE,
+    BROWN,
+    GREY,
+    RED,
+    ORANGE,
+    YELLOW
+};
 
 class Animal {
  public:
@@ -19,18 +32,25 @@ class Animal {
     const char* getSex() const;
     const char* getColor() const;
 
-    void setMass(float newMass);
     void setAge(int newAge);
+    void setMass(float newMass);
     void setSex(Sex newSex);
     void setColor(Color newColor);
 
     virtual void whatDoesSay() = 0;
+
+ protected:
+    void setAnyAge(int newAge);
+    void setAnyMass(float newMass);
+    Sex getSexEnum() const;
+    Color getColorEnum() const;
+
  private:
     float mass;
-    char* sex;
-    char* color;
+    Sex sex;
+    Color color;
     int age;
 };
 
 
-#endif //ANIMALS_ANIMAL_H
+#endif  // INCLUDE_ANIMAL_H_

@@ -1,11 +1,12 @@
 // Copyright (C) 2024 Yuriy Magus
 
-#ifndef ANIMALS_FOX_H
-#define ANIMALS_FOX_H
+#ifndef INCLUDE_FOX_H_
+#define INCLUDE_FOX_H_
 
 #include "Animal.h"
 
 enum class TypeFox {
+    UNINITIALIZED,
     ARCTIC,
     FENNEC,
     CORSAC,
@@ -22,11 +23,11 @@ class Fox : public Animal {
     Fox(Fox&& ref);
     ~Fox();
 
-    char* getName();
-    char* getType();
-    int getNumberRabbitsEaten();
+    char* getName() const;
+    char* getType() const;
+    int getNumberRabbitsEaten() const;
 
-    void setName(char* newName);
+    void setName(const char* newName);
     void setType(TypeFox newType);
 
     void eat();
@@ -34,7 +35,6 @@ class Fox : public Animal {
 
     Fox& operator=(const Fox& other);
     Fox& operator=(Fox&& other);
-
  private:
     char* name;
     TypeFox type;
@@ -42,4 +42,4 @@ class Fox : public Animal {
 };
 
 
-#endif //ANIMALS_FOX_H
+#endif  // INCLUDE_FOX_H_
