@@ -1,11 +1,8 @@
 // Copyright (C) 2024 Yuriy Magus
 
-#ifndef ANIMALS_UTILITIES_CPP
-#define ANIMALS_UTILITIES_CPP
+#include "../include/Utilities.h"
 
-#include <iostream>
-
-inline size_t getStrLength(const char * str) {
+size_t getStrLength(const char * str) {
     int i = 0;
     while (str[i] != '\0') {
         i++;
@@ -13,5 +10,3 @@ inline size_t getStrLength(const char * str) {
 
     return i;
 }
-
-#endif //ANIMALS_UTILITIES_CPP

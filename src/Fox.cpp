@@ -1,30 +1,43 @@
 // Copyright (C) 2024 Yuriy Magus
 
+#include <iostream>
+#include "../include/Utilities.h"
 #include "../include/Fox.h"
-#include "../src/Utilities.cpp"
 
 Fox::Fox() : Animal() {
     this->name = nullptr;
+    this->type = TypeFox::UNINITIALIZED;
     this->numberRabbitsEaten = 0;
 }
 
-Fox::Fox(char* name, TypeFox type, Sex sex, Color color, int age, float mass) : Animal(sex, color, age, mass) {
+Fox::Fox(
+    char* name,
+    TypeFox type,
+    Sex sex,
+    Color color,
+    int age,
+    float mass
+) : Animal(sex, color, age, mass) {
+    this->name = nullptr;
     setName(name);
     setType(type);
     this->numberRabbitsEaten = 0;
 }
 
-Fox::Fox(const Fox &ref) : type(ref.type), numberRabbitsEaten(ref.numberRabbitsEaten) {
-    if (ref.name == nullptr) {
-        this->name = nullptr;
-    } else {
-        for (int i = 0; i < getStrLength(ref.name); i++) {
-            this->name[i] = ref.name[i];
-        }
-    }
+Fox::Fox(const Fox &ref) {
+    this->numberRabbitsEaten = ref.numberRabbitsEaten;
+    setType(ref.type);
+    setName(nullptr);
+    setName(ref.name);
+    setSex(ref.getSexEnum());
+    setColor(ref.getColorEnum());
+    setAge(ref.getAge());
+    setMass(ref.getMass());
 }
 
-Fox::Fox(Fox &&ref) : type(ref.type), numberRabbitsEaten(ref.numberRabbitsEaten) {
+Fox::Fox(Fox &&ref) {
+    setType(ref.type);
+    this->numberRabbitsEaten = ref.numberRabbitsEaten;
     delete [] this->name;
     this->name = ref.name;
 
@@ -34,39 +47,50 @@ Fox::Fox(Fox &&ref) : type(ref.type), numberRabbitsEaten(ref.numberRabbitsEaten)
 
 Fox::~Fox() {
     this->numberRabbitsEaten = 0;
+    this->type = TypeFox::UNINITIALIZED;
     delete [] this->name;
 }
 
-char* Fox::getName() {
+char* Fox::getName() const {
+    if (this->name == nullptr) {
+        return const_cast<char *>("None");
+    }
     return this->name;
 }
 
-char* Fox::getType() {
+char* Fox::getType() const {
     switch (this->type) {
+        case (TypeFox::UNINITIALIZED):
+            return const_cast<char *>("None");
         case (TypeFox::ARCTIC):
-            return (char*) "Arctic";
+            return const_cast<char *>("Arctic");
         case (TypeFox::FENNEC):
-            return (char*) "Fennec";
+            return const_cast<char *>("Fennec");
         case (TypeFox::CORSAC):
-            return (char*) "Corsac";
+            return const_cast<char *>("Corsac");
         case (TypeFox::BENGAL):
-            return (char*) "Bengal";
+            return const_cast<char *>("Bengal");
         case (TypeFox::SWIFT):
-            return (char*) "Swift";
+            return const_cast<char *>("Swift");
         case (TypeFox::KIT):
-            return (char*) "Kit";
+            return const_cast<char *>("Kit");
         default:
-            return (char*) "Not initialized";
+            return const_cast<char *>("None");
     }
 }
 
-int Fox::getNumberRabbitsEaten() {
+int Fox::getNumberRabbitsEaten() const {
     return this->numberRabbitsEaten;
 }
 
-void Fox::setName(char* newName) {
+void Fox::setName(const char* newName) {
+    if (newName == nullptr) {
+        this->name = nullptr;
+        return;
+    }
+
     size_t newNameLength = getStrLength(newName);
-    delete this->name;
+    delete [] this->name;
     this->name = new char[newNameLength + 1];
     for (int i = 0; i < newNameLength + 1; i++) {
         this->name[i] = newName[i];
@@ -86,45 +110,59 @@ void Fox::whatDoesSay() {
     switch (this->type) {
         case (TypeFox::ARCTIC):
             std::cout << "Jacha-chacha-chacha-chow!" << std::endl;
+            break;
         case (TypeFox::FENNEC):
             std::cout << "Ring-ding-ding-ding-dingeringeding!" << std::endl;
+            break;
         case (TypeFox::CORSAC):
             std::cout << "Hatee-hatee-hatee-ho!" << std::endl;
+            break;
         case (TypeFox::BENGAL):
             std::cout << "Joff-tchoff-tchoffo-tchoffo-tchoff!" << std::endl;
+            break;
         case (TypeFox::SWIFT):
             std::cout << "Fraka-kaka-kaka-kaka-kow!" << std::endl;
+            break;
         case (TypeFox::KIT):
             std::cout << "A-hee-ahee ha-hee!" << std::endl;
+            break;
         default:
             std::cout << "Yip" << std::endl;
+            break;
     }
 }
 
 Fox& Fox::operator=(const Fox& other) {
     if (this != &other) {
         this->numberRabbitsEaten = other.numberRabbitsEaten;
-        this->type = other.type;
-
-        delete this->name;
-        size_t otherStrLen = getStrLength(other.name) + 1;
-        this->name = new char[otherStrLen];
-        for (int i = 0; i < otherStrLen; i++) {
-            this->name[i] = other.name[i];
-        }
+        setAge(other.getAge());
+        setMass(other.getMass());
+        setSex(other.getSexEnum());
+        setColor(other.getColorEnum());
+        setType(other.type);
+        setName(other.name);
     }
     return *this;
 }
 
 Fox& Fox::operator=(Fox&& other) {
     if (this != &other) {
-        this->numberRabbitsEaten = other.numberRabbitsEaten;
-        this->type = other.type;
         delete[] this->name;
         this->name = other.name;
+        setAge(other.getAge());
+        setMass(other.getMass());
+        setSex(other.getSexEnum());
+        setColor(other.getColorEnum());
+        this->numberRabbitsEaten = other.numberRabbitsEaten;
+        this->type = other.type;
 
         other.name = nullptr;
-        other.numberRabbitsEaten = 0;
+        other.setAnyAge(0);
+        other.setAnyMass(0);
+        other.setSex(Sex::UNINITIALIZED);
+        other.setColor(Color::UNINITIALIZED);
+        other.setType(TypeFox::UNINITIALIZED);
+        this->numberRabbitsEaten = 0;
     }
 
     return *this;
