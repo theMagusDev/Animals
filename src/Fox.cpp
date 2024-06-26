@@ -11,7 +11,7 @@ Fox::Fox() : Animal() {
 }
 
 Fox::Fox(
-    char* name,
+    const char* name,
     TypeFox type,
     Sex sex,
     Color color,

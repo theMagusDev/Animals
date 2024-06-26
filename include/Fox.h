@@ -18,7 +18,7 @@ enum class TypeFox {
 class Fox : public Animal {
  public:
     Fox();
-    Fox(char* name, TypeFox type, Sex sex, Color color, int age, float mass);
+    Fox(const char* name, TypeFox type, Sex sex, Color color, int age, float mass);
     Fox(const Fox& ref);
     Fox(Fox&& ref);
     ~Fox();

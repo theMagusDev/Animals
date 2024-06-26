@@ -9,7 +9,7 @@ Dog::Dog() : Animal() {
 }
 
 Dog::Dog(
-    char* name,
+    const char* name,
     Breed race,
     Sex sex,
     Color color,

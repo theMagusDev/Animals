@@ -23,7 +23,7 @@ enum class Breed {
 class Dog : public Animal {
  public:
     Dog();
-    Dog(char* name, Breed race, Sex sex, Color color, int age, float mass);
+    Dog(const char* name, Breed race, Sex sex, Color color, int age, float mass);
     Dog(const Dog& ref);
     Dog(Dog&& ref);
     ~Dog();
