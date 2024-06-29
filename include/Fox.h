@@ -23,8 +23,8 @@ class Fox : public Animal {
     Fox(Fox&& ref);
     ~Fox();
 
-    char* getName() const;
-    char* getType() const;
+    const char* getName() const;
+    const char* getType() const;
     int getNumberRabbitsEaten() const;
 
     void setName(const char* newName);

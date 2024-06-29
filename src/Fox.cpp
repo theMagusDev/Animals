@@ -51,31 +51,31 @@ Fox::~Fox() {
     delete [] this->name;
 }
 
-char* Fox::getName() const {
+const char* Fox::getName() const {
     if (this->name == nullptr) {
-        return const_cast<char *>("None");
+        return "None";
     }
-    return this->name;
+    return const_cast<const char*>(this->name);
 }
 
-char* Fox::getType() const {
+const char* Fox::getType() const {
     switch (this->type) {
         case (TypeFox::UNINITIALIZED):
-            return const_cast<char *>("None");
+            return "None";
         case (TypeFox::ARCTIC):
-            return const_cast<char *>("Arctic");
+            return "Arctic";
         case (TypeFox::FENNEC):
-            return const_cast<char *>("Fennec");
+            return "Fennec";
         case (TypeFox::CORSAC):
-            return const_cast<char *>("Corsac");
+            return "Corsac";
         case (TypeFox::BENGAL):
-            return const_cast<char *>("Bengal");
+            return "Bengal";
         case (TypeFox::SWIFT):
-            return const_cast<char *>("Swift");
+            return "Swift";
         case (TypeFox::KIT):
-            return const_cast<char *>("Kit");
+            return "Kit";
         default:
-            return const_cast<char *>("None");
+            return "None";
     }
 }
 
