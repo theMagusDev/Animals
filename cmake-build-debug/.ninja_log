@@ -33,3 +33,11 @@
 527	633	7326506355020374	Animals.exe	34eb1d5edde96320
 1	338	7326512484364635	CMakeFiles/Animals.dir/src/main.cpp.obj	718c4c466fb66933
 339	412	7326512485085016	Animals.exe	34eb1d5edde96320
+23	642	7413083310836875	CMakeFiles/Animals.dir/src/Dog.cpp.obj	b412fa5ec3d8e298
+39	661	7413083311016350	CMakeFiles/Animals.dir/src/Fox.cpp.obj	4bba01e90356c438
+2	740	7413083311815802	CMakeFiles/Animals.dir/src/main.cpp.obj	718c4c466fb66933
+740	909	7413083313468826	Animals.exe	34eb1d5edde96320
+2	262	7413497736346188	CMakeFiles/Animals.dir/src/Animal.cpp.obj	ba27ae876295dca6
+263	492	7413497738599436	Animals.exe	34eb1d5edde96320
+3	76	7413498377520779	CMakeFiles/Animals.dir/src/Animal.cpp.obj	ba27ae876295dca6
+77	168	7413498378402868	Animals.exe	34eb1d5edde96320

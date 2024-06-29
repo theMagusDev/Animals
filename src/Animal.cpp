@@ -1,6 +1,5 @@
 // Copyright (C) 2024 Yuriy Magus
 
-#include <iostream>
 #include "../include/Animal.h"
 
 Animal::Animal() : mass(0.0), age(0) {
@@ -52,32 +51,32 @@ float Animal::getMass() const {
 const char* Animal::getSex() const {
     switch (this->sex) {
         case (Sex::UNINITIALIZED):
-            return const_cast<char *>("None");
+            return "None";
         case (Sex::MALE):
-            return const_cast<char *>("Male");
+            return "Male";
         case (Sex::FEMALE):
-            return const_cast<char *>("Female");
+            return "Female";
     }
 }
 
 const char* Animal::getColor() const {
     switch (this->color) {
         case (Color::UNINITIALIZED):
-            return const_cast<char *>("None");
+            return "None";
         case (Color::BLACK):
-            return const_cast<char *>("Black");
+            return "Black";
         case Color::WHITE:
-            return const_cast<char *>("White");
+            return "White";
         case Color::BROWN:
-            return const_cast<char *>("Brown");
+            return "Brown";
         case Color::GREY:
-            return const_cast<char *>("Grey");
+            return "Grey";
         case Color::RED:
-            return const_cast<char *>("Red");
+            return "Red";
         case Color::ORANGE:
-            return const_cast<char *>("Orange");
+            return "Orange";
         case Color::YELLOW:
-            return const_cast<char *>("Yellow");
+            return "Yellow";
     }
 }
 
