@@ -34,7 +34,6 @@ Dog::Dog(Dog &&ref) : race(ref.race) {
     if (this->name == reinterpret_cast<char*>(0x10)) {
         this->name = nullptr;
     }
-    std::cout << "Move constructor called from " << std::endl;
     delete [] this->name;
     this->name = ref.name;
 
