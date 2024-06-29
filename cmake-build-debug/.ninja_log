@@ -41,3 +41,6 @@
 263	492	7413497738599436	Animals.exe	34eb1d5edde96320
 3	76	7413498377520779	CMakeFiles/Animals.dir/src/Animal.cpp.obj	ba27ae876295dca6
 77	168	7413498378402868	Animals.exe	34eb1d5edde96320
+9	459	7413505985707107	CMakeFiles/Animals.dir/src/Dog.cpp.obj	b412fa5ec3d8e298
+4	487	7413505986007107	CMakeFiles/Animals.dir/src/main.cpp.obj	718c4c466fb66933
+487	599	7413505987057109	Animals.exe	34eb1d5edde96320

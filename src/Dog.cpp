@@ -44,41 +44,41 @@ Dog::~Dog() {
     delete[] this->name;
 }
 
-char* Dog::getName() const {
+const char* Dog::getName() const {
     if (this->name == nullptr) {
-        return const_cast<char *>("None");
+        return "None";
     }
-    return this->name;
+    return const_cast<const char*>(this->name);
 }
 
-char* Dog::getRace() const {
+const char* Dog::getRace() const {
     switch (this->race) {
         case (Breed::UNINITIALIZED):
-            return const_cast<char *>("None");
+            return "None";
         case (Breed::LABRADOR):
-            return const_cast<char *>("Labrador");
+            return "Labrador";
         case (Breed::SHEPHERD):
-            return const_cast<char *>("Shepherd");
+            return "Shepherd";
         case (Breed::BULLDOG):
-            return const_cast<char *>("Bulldog");
+            return "Bulldog";
         case (Breed::POODLE):
-            return const_cast<char *>("Poodle");
+            return "Poodle";
         case (Breed::BEAGLE):
-            return const_cast<char *>("Beagle");
+            return "Beagle";
         case (Breed::ROTTWEILER):
-            return const_cast<char *>("Rottweiler");
+            return "Rottweiler";
         case (Breed::BOXER):
-            return const_cast<char *>("Boxer");
+            return "Boxer";
         case (Breed::DALMATIAN):
-            return const_cast<char *>("Dalmatian");
+            return "Dalmatian";
         case (Breed::HUSKY):
-            return const_cast<char *>("Husky");
+            return "Husky";
         case (Breed::CHIHUAHUA):
-            return const_cast<char *>("Chihuahua");
+            return "Chihuahua";
         case (Breed::YORKIE):
-            return const_cast<char *>("Yorkie");
+            return "Yorkie";
         default:
-            return const_cast<char *>("None");
+            return "None";
     }
 }
 

@@ -28,8 +28,8 @@ class Dog : public Animal {
     Dog(Dog&& ref);
     ~Dog();
 
-    char* getName() const;
-    char* getRace() const;
+    const char* getName() const;
+    const char* getRace() const;
     void setName(const char* newName);
     void setRace(Breed newRace);
     void whatDoesSay() override;
